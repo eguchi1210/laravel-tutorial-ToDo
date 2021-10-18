@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('styles')
-  @include('share.flatpickr.styles')
-@endsection
-
 @section('content')
   <div class="container">
     <div class="row">
@@ -18,10 +14,8 @@
                 @endforeach
               </div>
             @endif
-            <form
-                action="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task_id' => $task->id]) }}"
-                method="POST"
-            >
+            <form action="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task' => $task->id]) }}"
+                method="POST">
               @csrf
               <div class="form-group">
                 <label for="title">タイトル</label>
